@@ -1,0 +1,67 @@
+
+  
+  h1, h2, h3, h4, h5 { color:white; font-family: $mini, arial, helvetica; }
+  
+  .topNav {
+      width: 100%;
+      position: fixed;
+      top: 0px;
+      height: 60px;
+      z-index: 99999;
+      background: none repeat scroll 0% 0% #000;
+      border-bottom: 1px solid $border;
+      margin-bottom: 100px;
+  }
+   
+  nav {
+      width:1200px;
+      max-width: 1200px;
+      margin:0 auto;
+      padding-top:10px;
+      color:white;
+  }
+  
+  nav ul {
+      margin-bottom:0 !important;
+      padding-top:8px !important;
+  }
+  
+  nav ul li {
+      -webkit-user-select: none;  /* Chrome all / Safari all */
+        -moz-user-select: none;     /* Firefox all */
+        -ms-user-select: none;
+        cursor:default;
+   }
+  
+  
+  .global-nav-item {
+    position: relative;
+    /*float: left;*/
+    background-image: url(../images/header-grey-grad.jpg);
+    height: 57px;
+    padding: 15px;
+    top: -10px;
+  }
+  
+  nav ul { 
+      display:inline-block;
+     }
+
+  /*nav ul li:after { content:"<img src='images/down_arrow.png'>"; margin-left:25px; }*/
+
+  nav ul li:last-child::after { 
+      content:""; 
+    }
+  
+  nav > div { 
+      cursor: pointer; 
+    }
+  
+  nav > div > i {
+      margin-right:8px;
+      font-size: 1.5em !important;
+      position: relative;
+      top: 2px;
+  }
+  
+  
