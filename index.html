@@ -34,12 +34,13 @@
     <div class="row car-thumbs">
       <div class="small-6 columns">
         <h4 class="subhead">SELECT YOUR MODEL :<span>&nbsp;</span></h4>
-        <div class="thumbInfo">
+        <div class="thumbInfo" v-for="item in cardata">
 
           <!-- ===== USE THESE IMG ELEMENTS (hint - an attribute is key) TO RETRIEVE THE DATA === -->
-          <img v-on:click="getData" class="data-ref" src="images/F55.jpg" alt="blue mini" id="F55" data-roundaboutindex="0">
-          <img v-on:click="getData" class="data-ref" src="images/F56.jpg" alt="yellow mini" id="F56" data-roundaboutindex="1">
-          <img v-on:click="getData" class="data-ref" src="images/R57.jpg" alt="convertible mini" id="R58" data-roundaboutindex="2">
+          <a v-on:click="loadCar">
+          <img class="data-ref" :src="'images/' + carIMG" id="F55" alt="blue mini" data-roundaboutindex="0">
+        </a>
+        
 
         </div>
         <hr>
@@ -56,19 +57,12 @@
         </div>
       </div>
 
-      <!-- model info block  -->
-
-      <!--Preloader wrapper here-->
-      <div class="preloader-wrapper">
-        <!--preloader-->
-        <div class="preloader"></div>
-      </div>
-
       <!-- ==== POPULATE THESE ELEMENTS WITH THE QUERY RESULT === -->
       <div class="small-6 columns modelInfo">
           <h4 class="modelName">{{ modelname }}</h4>
           <p class="pricing">{{ modelpricing }}</p>
           <p class="modelDetails">{{ modeldetails }}</p>
+          <video :src="'video/' + videosource"></video>
       </div>
     </div> <!-- end model info / thumbs -->
     <hr>

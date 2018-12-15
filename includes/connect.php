@@ -1,44 +1,18 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = "root";
-$db = "db_cooperinfo";
 
-$conn = mysqli_connect($host, $user, $password, $db);
+$user = "root"; 
+$pwd = "root"; 
 
-if (!$conn) {
-    echo "something broke... connection isn't working";
-    exit;
+try {
+    $pdo = new PDO('mysql:host=localhost;dbname=db_cooperinfo',$user, $pwd);
+    //this is the same thing as going $host = "localhost" etc but just in one line
+    //var_dump($conn); //check connection - instead of doing a var element, use var_dump to 
+                    //show because it is an object
+    
+
+} catch (PDOException $exception) {
+    echo 'connect error!' . $exception->getMessage();
 }
 
-//echo "connected!";
-//comment ^ out once seeing that it works
 
-
-//go and get all data from the database
-//$myQuery = "SELECT * FROM mainmodel";     //commenting out to isolate query for one item below
-//$result = mysqli_query($conn, $myQuery);
-//$rows = array ();
-
-//fill the array with the result set and send it to the browser
-//while($row = mysqli_fetch_assoc($result)) {
-//    $rows[] = $row;
-//}
-
-//get one item from database
-if (isset($_GET["modelNo"])) {
-    $car = $_GET["modelNo"];
-
-    $myQuery = "SELECT * FROM mainmodel WHERE model='$car'";
-
-    $result = mysqli_query($conn, $myQuery);
-    $rows = array ();
-
-    //fill the array with the result set and send it to the browser
-    while($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    }
-    //encode the result and send it back
-    echo json_encode($rows);
-}
 ?>
