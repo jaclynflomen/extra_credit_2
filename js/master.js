@@ -31,7 +31,7 @@ const vm = new Vue({
     methods : {
         fetchSingle(e) {
             //debugger;
-            this.fetchCarData(e.currentTarget.dataset.modelNo);
+            this.fetchCarData(e.currentTarget.dataset.id);
 
         },
         
@@ -53,8 +53,8 @@ const vm = new Vue({
     
         },
 
-        fetchCarData(modelNo) {
-            let url = modelNo ?`./includes/index.php?modelNo=${modelNo}` : './includes/index.php'; 
+        fetchCarData(id) {
+            let url = id ?`./includes/index.php?id=${id}` : './includes/index.php'; 
              //this is a ternary statement, shorthand if else statement. left of : is true, right is false
          
              fetch(url)
@@ -62,7 +62,7 @@ const vm = new Vue({
              .then(data => {
                  console.log(data);
 
-                 if (modelNo) {
+                 if (id) {
                      //store data in the single result above
                      this.singledata = data;
                  } else {

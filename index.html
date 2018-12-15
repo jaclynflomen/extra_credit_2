@@ -39,7 +39,7 @@
           <!-- ===== USE THESE IMG ELEMENTS (hint - an attribute is key) TO RETRIEVE THE DATA === -->
         <button v-on:click="fetchSingle" :data-movie="video.id" class="more-details">More Details...</button>
         <a :href="video.vid_path" v-on:click="loadCar">
-          <img class="data-ref" :src="'images/' + carIMG" id="F55" alt="blue mini" data-roundaboutindex="0">
+          <img class="data-ref" :src="'images/' + carIMG" id="0" alt="blue mini" data-roundaboutindex="0">
         </a>
         
 
@@ -64,7 +64,6 @@
           <h4 class="modelName">{{ modelname }}</h4>
           <p class="pricing">{{ modelpricing }}</p>
           <p class="modelDetails">{{ modeldetails }}</p>
-          
           <video :src="'video/' + videosource"></video>
         </div>
       </div>
