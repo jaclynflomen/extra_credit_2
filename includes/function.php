@@ -2,7 +2,7 @@
     include 'connect.php';
     // get one art first
     function get_single_car($pdo, $car) {
-        $query = "SELECT * FROM mainmodel, video, tbl_mainmodel_video WHERE mainmodel.id = tbl_mainmodel_video.mainmodel_id AND video.id = tbl_mainmodel_video.video_id AND modelNo = $car"; 
+        $query = "SELECT * FROM mainmodel, video, tbl_mainmodel_video WHERE mainmodel.id = tbl_mainmodel_video.mainmodel_id AND video.id = tbl_mainmodel_video.video_id AND id = $car"; 
         //attach the id in the thumnail to ensure you are getting the right image
 
         $get_car = $pdo->query($query);

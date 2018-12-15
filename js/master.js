@@ -1,7 +1,4 @@
 (() => {
-
-//rework this with a Vue instance
-
 const vm = new Vue({
     el : "#app",
 
@@ -14,12 +11,20 @@ const vm = new Vue({
         carIMG : "",
 
         cardata : [],
-        singledata : []
+        singledata : [],
+
+        showDetails : false 
     },
 
     created : function() {
         //get all of the movie data ib the oage load
-        this.fetchCarData('modelNo'); //this is where we would fetch PHP stuff
+        this.fetchCarData(null); //this is where we would fetch PHP stuff
+    },
+
+    mounted : function(){
+        console.log('vue is ready to go on the page');
+        //trigger an ajax call with a mocked click event
+        document.querySelector('#F55').click();
     },
 
 
@@ -29,6 +34,7 @@ const vm = new Vue({
             this.fetchCarData(e.currentTarget.dataset.modelNo);
 
         },
+        
 
         loadCar(e) { //use to open lightbox in portfolio
             //debugger;
@@ -42,6 +48,8 @@ const vm = new Vue({
             this.modeldetails = currentData[0].modelDetails;
             this.carIMG = currentData[0].imgPath;
             this.videosource = dataKey;
+
+            this.showDetails = true;
     
         },
 
